@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotoTask: Asfalt Yarışçısı</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="custom.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="kapsayici">
+        <div class="ust-bilgi">
+            <div class="oyuncu-profili">
+                <div class="avatar-alani">
+                    <div id="seviyeRozeti" class="seviye-rozeti">1</div>
+                    <img src="https://api.dicebear.com/7.x/shapes/svg?seed=Racer1&backgroundColor=0a192f" alt="Sürücü" id="oyuncuAvatar">
+                </div>
+                <div class="istatistikler">
+                    <div class="rutbe-baslik" id="oyuncuRutbesi">🛵 Scooter Çaylağı</div>
+                    <div class="xp-alani">
+                        <div class="xp-yazisi"><span id="guncelXP">0</span> / <span id="hedefXP">100</span> Adrenalin</div>
+                        <div class="xp-arkaplan">
+                            <div id="xpCubugu" class="xp-cubugu"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="canliSaat" class="saat">00:00:00</div>
+        </div>
+        
+        <div class="pist-alani">
+            <div class="yaris-pisti">
+                <div class="yol-cizgisi"></div>
+                <div id="motorObjesi" class="motor-ikonu"><i class="fa-solid fa-motorcycle"></i></div>
+                <div class="bitis-cizgisi">🏁</div>
+            </div>
+            <div class="ilerleme-metni">
+                <span id="pistDurumu">Motoru çalıştırmak için görev ekle!</span>
+                <span id="yuzdeGosterge">%0 Tamamlandı</span>
+            </div>
+        </div>
+
+        <div class="giris-paneli">
+            <input type="text" id="veri-kutusu" placeholder="Sıradaki hedefin nedir, yarışçı?">
+            
+            <div class="alt-girisler">
+                <select id="oncelik-secici" title="Zorluk Derecesi">
+                    <option value="dusuk">🟢 1. Vites (10 AP)</option>
+                    <option value="orta" selected>🟡 2. Vites (20 AP)</option>
+                    <option value="yuksek">🔴 3. Vites (30 AP)</option>
+                </select>
+                
+                <select id="kategori-secici" title="Kategori">
+                    <option value="kisisel">👤 Kişisel</option>
+                    <option value="is">💼 İş/Okul</option>
+                    <option value="ev">🏠 Ev</option>
+                </select>
+                
+                <input type="number" id="sure-secici" placeholder="Süre (Dk)" min="1" max="999" title="Tahmini Süre">
+            </div>
+            
+            <button onclick="elemanEkle()" class="gaza-bas-btn"><i class="fa-solid fa-gauge-high"></i> Gaza Bas!</button>
+        </div>
+
+        <ul id="liste"></ul>
+        
+        <div class="alt-bilgi" id="altBilgi" style="display: none;">
+            <span id="sayac" class="sayac-metni">0 durak kaldı</span>
+            <div class="buton-grubu">
+                <button class="kucuk-btn" onclick="tamamlananlariSil()"><i class="fa-solid fa-eraser"></i> Geçilenleri Sil</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="seviyeEkrani" class="seviye-atladi-modal">
+        <div class="modal-icerik">
+            <h1 class="modal-baslik">VİTES BÜYÜTTÜN! 🏍️</h1>
+            <p><span id="yeniSeviyeMetni">2</span>. seviyeye ulaştın!</p>
+            <h3 id="yeniRutbeMetni">Yeni Rütbe: Sokak Yarışçısı</h3>
+            <button onclick="kutlamaKapat()" class="devam-btn">Asfalta Dön</button>
+        </div>
+    </div>
+
+    <div id="bildirimKutusu" class="bildirim-kutusu">Tebrikler!</div>
+
+    <audio id="sesBasari" src="https://assets.mixkit.co/active_storage/sfx/1600/1600-preview.mp3"></audio>
+    <audio id="sesLevelUp" src="https://assets.mixkit.co/active_storage/sfx/2018/2018-preview.mp3"></audio>
+    <audio id="sesSilme" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

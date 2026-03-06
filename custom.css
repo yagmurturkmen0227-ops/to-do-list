@@ -1,0 +1,64 @@
+/* =========================================
+   🔥 CUSTOM CSS: HIZ VE NEON DETAYLARI 🔥
+   ========================================= */
+
+/* 1. Başlıkları ve Sayaçları İtalik ve Agresif Yap */
+.baslik, .sayac-metni, .rutbe-baslik {
+    font-style: italic;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* 2. Görev Metinlerine Hız Hissi (İtalik) Ver */
+.gorev-metni {
+    font-style: italic;
+    font-size: 18px !important; 
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.xp-odul {
+    font-weight: bold;
+}
+
+/* 3. Butona Neon Nefes Efekti */
+.gaza-bas-btn {
+    font-style: italic;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    animation: neonNefes 2s infinite alternate; 
+}
+
+@keyframes neonNefes {
+    from { box-shadow: 0 0 5px #66fcf1; }
+    to { box-shadow: 0 0 20px #66fcf1, 0 0 10px #45a29e; }
+}
+
+/* 4. Görevlerin Üzerine Gelince "Hızlanarak Eğilme" (Skew) Efekti */
+ul li {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+ul li:hover {
+    background: #2b3643 !important;
+    transform: scale(1.03) skewX(-5deg) !important; 
+    border-left: 8px solid #66fcf1 !important;
+}
+
+/* 5. XP Çubuğuna Enerji Akışı Efekti */
+.xp-cubugu {
+    background: repeating-linear-gradient(
+        45deg,
+        #45a29e,
+        #45a29e 10px,
+        #66fcf1 10px,
+        #66fcf1 20px
+    ) !important;
+    background-size: 28px 28px !important;
+    animation: xpAkiyor 1s linear infinite;
+}
+
+@keyframes xpAkiyor {
+    0% { background-position: 0 0; }
+    100% { background-position: 28px 0; }
+}
